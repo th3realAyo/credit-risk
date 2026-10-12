@@ -56,10 +56,7 @@ Clone the repository
 git clone <https://github.com/th3realAyo/credit-risk.git>
 
 Run the project
-
-Start Jupyter Notebook:
-
-jupyter notebook
+Start Jupyter Notebook: jupyter notebook
 
 
 Open the project notebook and run the cells in sequence.
