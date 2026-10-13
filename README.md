@@ -49,52 +49,19 @@ Actual model performance and findings will be reported after training and evalua
 Prerequisites
 
 Install Python 3.10 or later and the required libraries.
-
-pip install pandas numpy matplotlib seaborn scikit-learn jupyter
-
+`pip install pandas numpy matplotlib seaborn scikit-learn jupyter`
 Clone the repository
-git clone <https://github.com/th3realAyo/credit-risk.git>
-
+`git clone <https://github.com/th3realAyo/credit-risk.git>`
 Run the project
-Start Jupyter Notebook: jupyter notebook
-
-
+`Start Jupyter Notebook: jupyter notebook`
 Open the project notebook and run the cells in sequence.
 
-Ensure the dataset is available at the path specified in the notebook. Do not commit sensitive applicant information or private credentials.
 
-📁 Suggested Project Structure
-credit-risk-prediction/
-│
-├── data/
-│   └── README.md
-│
-├── notebooks/
-│   └── credit_risk_analysis.ipynb
-│
-├── src/
-│   ├── preprocessing.py
-│   ├── train.py
-│   └── evaluate.py
-│
-├── models/
-│
-├── reports/
-│   └── figures/
-│
-├── requirements.txt
-├── .gitignore
-└── README.md
-
-
-This structure can be adapted as the project grows. Large datasets and trained model files do not necessarily need to be committed to Git.
-
-⚖️ Responsible Use and Limitations
+⚖️ **Responsible Use and Limitations**
 
 Credit prediction is a high-impact application. A model's output should not be treated as an unquestionable approval or rejection decision.
 
-Important considerations include:
-
+**Important considerations include:**
 Fairness: Evaluate whether model errors and outcomes differ across relevant applicant groups.
 Data quality: Incorrect, incomplete, or unrepresentative data can produce unreliable predictions.
 Model explainability: Lending decisions should be understandable and appropriately documented.
