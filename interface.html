@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Risk Predictor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <header class="header">
+            <div class="header-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div>
+                <h1>Credit Risk Predictor</h1>
+                <p>Enter applicant details to estimate creditworthiness</p>
+            </div>
+        </header>
+
+        <form id="inputForm" class="form-grid" autocomplete="off">
+            <div class="field">
+                <label for="age">Age</label>
+                <input type="number" id="age" min="18" max="65" value="30" step="1">
+            </div>
+
+            <div class="field">
+                <label for="sex">Sex</label>
+                <select id="sex">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="job">Job (0–3)</label>
+                <input type="number" id="job" min="0" max="3" value="1" step="1">
+            </div>
+
+            <div class="field">
+                <label for="housing">Housing</label>
+                <select id="housing">
+                    <option value="own">Own</option>
+                    <option value="rent">Rent</option>
+                    <option value="free">Free</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="saving_accounts">Saving Accounts</label>
+                <select id="saving_accounts">
+                    <option value="little">Little</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="quite rich">Quite Rich</option>
+                    <option value="rich">Rich</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="checking_accounts">Checking Accounts</label>
+                <select id="checking_accounts">
+                    <option value="little">Little</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="rich">Rich</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="credit_amount">Credit Amount</label>
+                <input type="number" id="credit_amount" min="0" value="1000" step="100">
+            </div>
+
+            <div class="field">
+                <label for="purpose">Purpose</label>
+                <select id="purpose"></select>
+            </div>
+
+            <div class="actions full-width">
+                <button type="button" class="btn-predict" id="predictBtn">
+                    <i class="fas fa-chart-line"></i> Predict
+                </button>
+                <button type="button" class="btn-reset" id="resetBtn">
+                    <i class="fas fa-undo"></i> Reset
+                </button>
+            </div>
+        </form>
+
+        <div class="result" id="resultContainer" aria-live="polite"></div>
+
+        <p class="note">XGBoost model · Local prediction · No data leaves your browser</p>
+    </div>
+
+    <!-- Loading overlay -->
+    <div class="loader-overlay" id="loaderOverlay" aria-hidden="true">
+        <div class="loader-card">
+            <div class="loader-ring">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="loader-text">
+                <h3 id="loaderTitle">Analyzing applicant</h3>
+                <p id="loaderSubtitle">Running model inference…</p>
+            </div>
+            <div class="loader-steps">
+                <div class="step" data-step="1">
+                    <i class="fas fa-check"></i>
+                    <span>Encoding features</span>
+                </div>
+                <div class="step" data-step="2">
+                    <i class="fas fa-check"></i>
+                    <span>Loading XGBoost model</span>
+                </div>
+                <div class="step" data-step="3">
+                    <i class="fas fa-check"></i>
+                    <span>Scoring risk profile</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
